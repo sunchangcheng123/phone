@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/vue.js"></script>
+  <script src="js/index.js"></script>
+  <style>
+    #app>ul{
+      list-style: none;
+      background:#333;
+      padding-left:0;
+    }
+    #app ul img{
+      width:100%;
+    }
+    #app ul img[lazy=loading]{
+      width:100%;
+      height:100px;
+      margin:auto;
+    }
+  </style>
+</head>
+<body>
+     <h3>懒加载图片</h3>
+    <div id="app">
+        <ul>
+          <li v-for="item in list">
+            <img v-lazy="item">
+          </li>
+        </ul>
+    </div>
+    <script>
+        new Vue({
+          el:"#app",
+          data:function(){
+            return {
+              list:["img/banner1.png","img/banner2.png","img/banner3.png","img/banner4.png"]
+            }
+          }
+        })
+    </script>
+</body>
+</html>
